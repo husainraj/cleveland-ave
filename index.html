@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>2 Cleveland Ave, Monroe Township, NJ</title>
+    <meta name="description"
+        content="4 bed, 4 bath colonial with an inground pool on a dead-end street in Monroe Township, NJ.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f7f7f5;
+            --surface: #ffffff;
+            --ink: #1f2328;
+            --muted: #5b6168;
+            --line: #dcdcd6;
+            --oak: #7a4e2d;
+            --park: #3e5a3a;
+            --scrim: rgba(15, 17, 20, 0.94);
+            --serif: "Newsreader", Georgia, "Times New Roman", serif;
+            --sans: "Public Sans", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+            color-scheme: light;
+            box-sizing: border-box;
+            padding-top: env(safe-area-inset-top, 0px);
+            padding-bottom: env(safe-area-inset-bottom, 0px);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #16181b;
+                --surface: #1e2125;
+                --ink: #ecebe6;
+                --muted: #a3a7ab;
+                --line: #33373c;
+                --oak: #d39a6c;
+                --park: #9cc093;
+                color-scheme: dark;
+            }
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: inherit;
+        }
+
+        html {
+            scroll-padding-top: env(safe-area-inset-top, 0px);
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font: 400 1rem/1.6 var(--sans);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: var(--oak);
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--oak);
+            outline-offset: 3px;
+        }
+
+        .wrap {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 1.25rem;
+        }
+
+        /* ---------- Photo mosaic ---------- */
+        .mosaic {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 6px;
+            height: min(62vh, 560px);
+            margin-top: 1.25rem;
+            border-radius: 14px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .mosaic button {
+            all: unset;
+            cursor: zoom-in;
+            position: relative;
+            background: var(--line);
+            overflow: hidden;
+        }
+
+        .mosaic button:focus-visible {
+            outline: 3px solid var(--oak);
+            outline-offset: -3px;
+        }
+
+        .mosaic button:first-child {
+            grid-row: 1 / 3;
+        }
+
+        .mosaic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .4s ease;
+        }
+
+        .mosaic button:hover img {
+            transform: scale(1.03);
+        }
+
+        .show-all {
+            position: absolute;
+            right: 14px;
+            bottom: 14px;
+            font: 500 .9rem var(--sans);
+            background: var(--surface);
+            color: var(--ink);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: .55rem .9rem;
+            cursor: pointer;
+        }
+
+        .show-all:hover {
+            background: var(--bg);
+        }
+
+        /* Shown when a photo file is missing */
+        .missing {
+            display: grid;
+            place-items: center;
+            text-align: center;
+            color: var(--muted);
+            font-size: .85rem;
+            padding: 1rem;
+        }
+
+        .missing img {
+            display: none;
+        }
+
+        /* ---------- Header facts ---------- */
+        .top {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 1rem 2rem;
+            align-items: end;
+            padding: 2rem 0 1.75rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .price {
+            font: 600 clamp(2.2rem, 5vw, 3.2rem)/1 var(--serif);
+            margin: 0 0 .5rem;
+            letter-spacing: -.01em;
+        }
+
+        h1.address {
+            font: 500 1.2rem/1.35 var(--sans);
+            margin: 0;
+        }
+
+        .hood {
+            color: var(--muted);
+            margin: .2rem 0 0;
+        }
+
+        .facts {
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+        }
+
+        .facts div {
+            text-align: right;
+        }
+
+        .facts dt {
+            color: var(--muted);
+            font-size: .85rem;
+        }
+
+        .facts dd {
+            margin: 0;
+            font: 600 1.6rem/1.1 var(--serif);
+        }
+
+        /* ---------- Body ---------- */
+        .body {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 320px;
+            gap: 3.5rem;
+            padding: 2.5rem 0 4rem;
+        }
+
+        h2 {
+            font: 500 1.65rem/1.2 var(--serif);
+            margin: 0 0 1rem;
+        }
+
+        section+section {
+            margin-top: 3rem;
+        }
+
+        .lede {
+            font: 400 1.2rem/1.65 var(--serif);
+            max-width: 62ch;
+        }
+
+        .lede p {
+            margin: 0 0 1em;
+        }
+
+        .highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .5rem;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .highlights li {
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            padding: .3rem .85rem;
+            font-size: .92rem;
+            background: var(--surface);
+        }
+
+        .rooms-wrap {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: .95rem;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: .65rem .75rem .65rem 0;
+            border-bottom: 1px solid var(--line);
+            white-space: nowrap;
+        }
+
+        th {
+            font-weight: 600;
+            color: var(--muted);
+            font-size: .85rem;
+        }
+
+        td.num {
+            font-variant-numeric: tabular-nums;
+        }
+
+        tbody tr.level td {
+            padding-top: 1.4rem;
+            font: 500 1.05rem var(--serif);
+            color: var(--park);
+            border-bottom-color: transparent;
+        }
+
+        .details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem 2.5rem;
+            margin: 0;
+        }
+
+        .details h3 {
+            font: 600 .95rem var(--sans);
+            margin: 0 0 .4rem;
+        }
+
+        .details ul {
+            margin: 0;
+            padding-left: 1.1rem;
+            color: var(--muted);
+        }
+
+        /* ---------- Contact card ---------- */
+        aside .card {
+            position: sticky;
+            top: calc(1.5rem + env(safe-area-inset-top, 0px));
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 1.5rem;
+        }
+
+        .card h2 {
+            font-size: 1.35rem;
+            margin-bottom: .35rem;
+        }
+
+        .card p {
+            margin: 0 0 1.1rem;
+            color: var(--muted);
+        }
+
+        .btn {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            font: 600 1rem var(--sans);
+            padding: .85rem 1rem;
+            border-radius: 10px;
+            background: var(--park);
+            color: #fff;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .btn {
+                color: #11160f;
+            }
+        }
+
+        .btn+.btn {
+            margin-top: .6rem;
+            background: transparent;
+            color: var(--ink);
+            border: 1px solid var(--line);
+        }
+
+        footer {
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: .85rem;
+            padding: 1.5rem 0 2.5rem;
+        }
+
+        /* ---------- Lightbox ---------- */
+        dialog.lightbox {
+            width: 100vw;
+            height: 100vh;
+            max-width: none;
+            max-height: none;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            background: var(--scrim);
+            color: #f1f1ee;
+        }
+
+        dialog.lightbox::backdrop {
+            background: var(--scrim);
+        }
+
+        .lb {
+            height: 100%;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px);
+        }
+
+        .lb-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: .9rem 1.25rem;
+            font-size: .95rem;
+        }
+
+        .lb-caption {
+            font: 400 1.05rem var(--serif);
+        }
+
+        .lb-count {
+            color: #b8bab6;
+            margin-left: .75rem;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* FIX: the photo now stays inside its own area instead of
+           spilling down behind the thumbnail strip */
+        .lb-stage {
+            position: relative;
+            display: grid;
+            place-items: center;
+            min-height: 0;
+            overflow: hidden;
+            touch-action: pan-y;
+        }
+
+        .lb-stage img {
+            position: absolute;
+            top: 0;
+            left: 4.5rem;
+            width: calc(100% - 9rem);
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .lb-stage .nav {
+            z-index: 2;
+        }
+
+        .lb-stage.missing {
+            color: #b8bab6;
+        }
+
+        .icon-btn {
+            all: unset;
+            cursor: pointer;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: rgba(255, 255, 255, .12);
+            color: #fff;
+        }
+
+        .icon-btn:hover {
+            background: rgba(255, 255, 255, .24);
+        }
+
+        .icon-btn:focus-visible {
+            outline: 3px solid #fff;
+            outline-offset: 2px;
+        }
+
+        .icon-btn svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .nav.prev {
+            left: 1rem;
+        }
+
+        .nav.next {
+            right: 1rem;
+        }
+
+        /* FIX: solid strip on top, thumbnails dimmed (not see-through),
+           current photo gets a white border */
+        .thumbs {
+            position: relative;
+            z-index: 3;
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: .9rem 1.25rem 1.1rem;
+            scrollbar-width: thin;
+            background: #0f1114;
+        }
+
+        .thumbs button {
+            all: unset;
+            cursor: pointer;
+            flex: 0 0 auto;
+            box-sizing: border-box;
+            width: 96px;
+            height: 66px;
+            border-radius: 6px;
+            overflow: hidden;
+            background: #2a2d31;
+            border: 3px solid transparent;
+            filter: brightness(.45);
+            transition: filter .15s ease, border-color .15s ease;
+        }
+
+        .thumbs button:hover {
+            filter: brightness(.8);
+        }
+
+        .thumbs button[aria-current="true"] {
+            filter: none;
+            border-color: #fff;
+        }
+
+        .thumbs button:focus-visible {
+            filter: none;
+            border-color: #9cc093;
+        }
+
+        .thumbs img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 900px) {
+            .body {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            aside .card {
+                position: static;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .wrap {
+                padding: 0 1rem;
+            }
+
+            .mosaic {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr;
+                height: 300px;
+                border-radius: 10px;
+            }
+
+            .mosaic button:not(:first-child) {
+                display: none;
+            }
+
+            .mosaic button:first-child {
+                grid-row: auto;
+            }
+
+            .top {
+                grid-template-columns: 1fr;
+            }
+
+            .facts {
+                gap: 1.5rem;
+            }
+
+            .facts div {
+                text-align: left;
+            }
+
+            .lb-stage img {
+                left: .5rem;
+                width: calc(100% - 1rem);
+            }
+
+            .nav {
+                display: none;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .mosaic img {
+                transition: none;
+            }
+
+            .mosaic button:hover img {
+                transform: none;
+            }
+
+            .thumbs button {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="wrap">
+
+        <!-- Photo mosaic: filled in from the PHOTOS list in the script below -->
+        <div class="mosaic" id="mosaic">
+            <button class="show-all" id="showAll" type="button">View all photos</button>
+        </div>
+
+        <header class="top">
+            <div>
+                <p class="price">$989,000</p>
+                <h1 class="address">2 Cleveland Ave, Monroe Township, NJ 08831</h1>
+                <p class="hood">Colonial on a dead-end street, for sale by owner</p>
+            </div>
+            <dl class="facts">
+                <div>
+                    <dt>Beds</dt>
+                    <dd>4</dd>
+                </div>
+                <div>
+                    <dt>Baths</dt>
+                    <dd>4</dd>
+                </div>
+                <div>
+                    <dt>Sq ft</dt>
+                    <dd>3,100</dd>
+                </div>
+            </dl>
+        </header>
+
+        <div class="body">
+            <div>
+                <section>
+                    <h2>About the home</h2>
+                    <div class="lede">
+                        <!-- Replace with your own description -->
+                        <p>A well-kept 1998 colonial on a quiet dead-end street, with four bedrooms, two full baths and
+                            two half baths. Santos mahogany hardwood runs through the living and dining rooms and up to
+                            the second-floor landing.</p>
+                        <p>The kitchen was fully remodeled in 2019, and the finished basement adds room to spread out.
+                            Out back, a private yard is built around an inground pool, ready for summer.</p>
+                        <p>The big-ticket work is done: a new roof with 6-inch gutters, soffits and fascia in 2022, a
+                            newer water heater the same year, and a furnace and central air replaced in 2018.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Highlights</h2>
+                    <ul class="highlights">
+                        <li>Inground pool</li>
+                        <li>Dead-end street</li>
+                        <li>Santos mahogany floors</li>
+                        <li>Kitchen remodeled 2019</li>
+                        <li>Finished basement</li>
+                        <li>New roof and gutters 2022</li>
+                        <li>Furnace and A/C 2018</li>
+                        <li>Water heater 2022</li>
+                        <li>Pool liner 2020</li>
+                        <li>New patio walkway 2026</li>
+                        <li>Fireplace</li>
+                        <li>Attached garage</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Recent updates</h2>
+                    <div class="rooms-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Year</th>
+                                    <th>Update</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="num">2026</td>
+                                    <td>New patio walkway</td>
+                                </tr>
+                                <tr>
+                                    <td class="num">2022</td>
+                                    <td>New roof, 6-inch gutters, soffits and fascia</td>
+                                </tr>
+                                <tr>
+                                    <td class="num">2022</td>
+                                    <td>Water heater</td>
+                                </tr>
+                                <tr>
+                                    <td class="num">2020</td>
+                                    <td>Pool liner</td>
+                                </tr>
+                                <tr>
+                                    <td class="num">2019</td>
+                                    <td>Kitchen remodel with new flooring</td>
+                                </tr>
+                                <tr>
+                                    <td class="num">2018</td>
+                                    <td>Furnace and central air</td>
+                                </tr>
+                                <tr>
+                                    <td class="num">2016</td>
+                                    <td>Hallway bath remodel</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Facts and features</h2>
+                    <div class="details">
+                        <div>
+                            <h3>Bedrooms and bathrooms</h3>
+                            <ul>
+                                <li>4 bedrooms</li>
+                                <li>2 full baths, 2 half baths</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>Interior</h3>
+                            <ul>
+                                <li>Hardwood, tile and laminate floors</li>
+                                <li>Fireplace</li>
+                                <li>Finished basement</li>
+                                <li>3,100 sq ft livable area</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>Heating and cooling</h3>
+                            <ul>
+                                <li>Gas forced air heat</li>
+                                <li>Central air</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>Appliances included</h3>
+                            <ul>
+                                <li>Range and oven, microwave</li>
+                                <li>Refrigerator, freezer</li>
+                                <li>Dishwasher</li>
+                                <li>Washer and dryer</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>Property</h3>
+                            <ul>
+                                <li>Lot size: 10,000 sq ft</li>
+                                <li>Inground pool and spa</li>
+                                <li>Private backyard</li>
+                                <li>Dead-end street</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>Parking</h3>
+                            <ul>
+                                <li>Attached garage</li>
+                                <li>On-street parking</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>Construction</h3>
+                            <ul>
+                                <li>Built in 1998</li>
+                                <li>Colonial style</li>
+                                <li>Vinyl and brick exterior</li>
+                                <li>Asphalt roof</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>Nearby schools</h3>
+                            <ul>
+                                <li>Monroe Twp High School, 0.3 mi</li>
+                                <li>Monroe Township Middle School, 0.6 mi</li>
+                                <li>Brookside School, 0.9 mi</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>Costs</h3>
+                            <ul>
+                                <li>Annual taxes: $12,877</li>
+                                <li>Tax assessed value: $485,200</li>
+                                <li>$319 per sq ft</li>
+                                <li>No HOA</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>Listing</h3>
+                            <ul>
+                                <li>For sale by owner</li>
+                                <li>On the market since August 5, 2026</li>
+                                <li>Parcel: 120014700001000037</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <aside>
+                <div class="card">
+                    <!-- Replace with your contact details -->
+                    <h2>Schedule a showing</h2>
+                    <p>Your Name<br>(000) 000-0000</p>
+                    <a class="btn" href="tel:+10000000000">Call</a>
+                    <a class="btn" href="mailto:you@example.com?subject=2%20Cleveland%20Ave">Send an email</a>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="wrap">Information is believed accurate but not guaranteed.</div>
+    </footer>
+
+    <!-- Lightbox -->
+    <dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+        <div class="lb">
+            <div class="lb-bar">
+                <div><span class="lb-caption" id="lbCaption"></span><span class="lb-count" id="lbCount"></span></div>
+                <button class="icon-btn" id="lbClose" type="button" aria-label="Close photos">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <path d="M6 6l12 12M18 6L6 18" />
+                    </svg>
+                </button>
+            </div>
+            <div class="lb-stage" id="lbStage">
+                <img id="lbImg" alt="">
+                <button class="icon-btn nav prev" id="lbPrev" type="button" aria-label="Previous photo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M15 5l-7 7 7 7" />
+                    </svg>
+                </button>
+                <button class="icon-btn nav next" id="lbNext" type="button" aria-label="Next photo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+            <div class="thumbs" id="thumbs"></div>
+        </div>
+    </dialog>
+
+    <script>
+        // ------------------------------------------------------------
+        // YOUR PHOTOS: put image files in an "images" folder next to
+        // this file and list them here, in the order you want them shown.
+        // The first one is the big cover photo.
+        // ------------------------------------------------------------
+        const PHOTOS = [
+            { src: "images/1.webp", caption: "Front exterior" },
+            { src: "images/2.webp", caption: "" },
+            { src: "images/3.webp", caption: "" },
+            { src: "images/4.webp", caption: "" },
+            { src: "images/5.webp", caption: "" },
+            { src: "images/6.webp", caption: "" },
+            { src: "images/7.webp", caption: "" },
+            { src: "images/8.webp", caption: "" },
+            { src: "images/9.webp", caption: "" },
+            { src: "images/10.webp", caption: "" },
+            { src: "images/11.webp", caption: "" },
+            { src: "images/12.webp", caption: "" },
+            { src: "images/13.webp", caption: "" },
+            { src: "images/14.webp", caption: "" },
+            { src: "images/15.webp", caption: "" },
+            { src: "images/16.webp", caption: "" },
+            { src: "images/17.webp", caption: "" },
+            { src: "images/18.webp", caption: "" },
+            { src: "images/19.webp", caption: "" },
+            { src: "images/20.webp", caption: "" },
+            { src: "images/21.webp", caption: "" },
+            { src: "images/22.webp", caption: "" },
+            { src: "images/23.webp", caption: "" },
+            { src: "images/24.webp", caption: "" },
+            { src: "images/25.webp", caption: "" },
+            { src: "images/26.webp", caption: "" },
+            { src: "images/27.webp", caption: "" },
+            { src: "images/28.webp", caption: "" },
+            { src: "images/29.webp", caption: "" },
+            { src: "images/30.webp", caption: "" },
+            { src: "images/31.webp", caption: "" },
+            { src: "images/32.webp", caption: "" },
+            { src: "images/33.webp", caption: "" },
+            { src: "images/34.webp", caption: "" },
+            { src: "images/35.webp", caption: "" },
+            { src: "images/36.webp", caption: "" },
+            { src: "images/37.webp", caption: "" },
+            { src: "images/38.webp", caption: "" },
+            { src: "images/39.webp", caption: "" },
+            { src: "images/40.webp", caption: "" },
+            { src: "images/41.webp", caption: "" },
+            { src: "images/42.webp", caption: "" },
+            { src: "images/43.webp", caption: "" },
+            { src: "images/44.webp", caption: "" },
+            { src: "images/45.webp", caption: "" },
+            { src: "images/46.webp", caption: "" },
+            { src: "images/47.webp", caption: "" },
+            { src: "images/48.webp", caption: "" },
+            { src: "images/49.webp", caption: "" },
+            { src: "images/50.webp", caption: "" },
+            { src: "images/51.webp", caption: "" },
+            { src: "images/52.webp", caption: "" },
+            { src: "images/53.webp", caption: "" },
+            { src: "images/54.webp", caption: "" },
+            { src: "images/55.webp", caption: "" },
+            { src: "images/56.webp", caption: "" },
+            { src: "images/57.webp", caption: "" },
+            { src: "images/58.webp", caption: "" },
+            { src: "images/59.webp", caption: "" }
+        ];
+
+        const $ = (id) => document.getElementById(id);
+        const dialog = $("lightbox"), lbImg = $("lbImg"), lbStage = $("lbStage");
+        let current = 0;
+
+        // If a photo file is missing, show its caption instead of a broken image
+        function guard(img, holder, caption) {
+            img.addEventListener("error", () => {
+                holder.classList.add("missing");
+                if (!holder.querySelector(".ph")) {
+                    const s = document.createElement("span");
+                    s.className = "ph";
+                    s.textContent = caption + " (add photo)";
+                    holder.appendChild(s);
+                }
+            });
+        }
+
+        // Build the mosaic (first 5 photos)
+        const mosaic = $("mosaic");
+        PHOTOS.slice(0, 5).forEach((p, i) => {
+            const b = document.createElement("button");
+            b.type = "button";
+            b.setAttribute("aria-label", "Open photo: " + p.caption);
+            const img = document.createElement("img");
+            img.src = p.src; img.alt = p.caption;
+            img.loading = i === 0 ? "eager" : "lazy";
+            guard(img, b, p.caption);
+            b.appendChild(img);
+            b.addEventListener("click", () => openAt(i));
+            mosaic.insertBefore(b, $("showAll"));
+        });
+        $("showAll").textContent = "View all " + PHOTOS.length + " photos";
+        $("showAll").addEventListener("click", () => openAt(0));
+
+        // Build the lightbox thumbnails
+        const thumbs = $("thumbs");
+        PHOTOS.forEach((p, i) => {
+            const b = document.createElement("button");
+            b.type = "button";
+            b.setAttribute("aria-label", "Show photo " + (i + 1) + (p.caption ? ": " + p.caption : ""));
+            const img = document.createElement("img");
+            img.src = p.src; img.alt = ""; img.loading = "lazy";
+            img.addEventListener("error", () => img.remove());
+            b.appendChild(img);
+            b.addEventListener("click", () => show(i));
+            thumbs.appendChild(b);
+        });
+
+        function show(i) {
+            current = (i + PHOTOS.length) % PHOTOS.length;
+            const p = PHOTOS[current];
+            lbStage.classList.remove("missing");
+            lbStage.querySelector(".ph")?.remove();
+            lbImg.src = p.src;
+            lbImg.alt = p.caption;
+            $("lbCaption").textContent = p.caption;
+            $("lbCount").textContent = (current + 1) + " / " + PHOTOS.length;
+
+            // FIX: mark only the current thumbnail
+            [...thumbs.children].forEach((t, n) => {
+                if (n === current) t.setAttribute("aria-current", "true");
+                else t.removeAttribute("aria-current");
+            });
+
+            // FIX: scroll the strip (not the page) so the current thumbnail is centred
+            const active = thumbs.children[current];
+            const smooth = !matchMedia("(prefers-reduced-motion: reduce)").matches;
+            thumbs.scrollTo({
+                left: active.offsetLeft - thumbs.clientWidth / 2 + active.offsetWidth / 2,
+                behavior: smooth ? "smooth" : "auto"
+            });
+
+            // Preload neighbours for snappy browsing
+            [current + 1, current - 1].forEach(n => { new Image().src = PHOTOS[(n + PHOTOS.length) % PHOTOS.length].src; });
+        }
+        lbImg.addEventListener("error", () => {
+            lbStage.classList.add("missing");
+            if (!lbStage.querySelector(".ph")) {
+                const s = document.createElement("span");
+                s.className = "ph";
+                s.textContent = "Photo not found: " + PHOTOS[current].src;
+                lbStage.appendChild(s);
+            }
+        });
+
+        function openAt(i) {
+            dialog.showModal();
+            document.body.style.overflow = "hidden";
+            show(i);
+        }
+        dialog.addEventListener("close", () => { document.body.style.overflow = ""; });
+        $("lbClose").addEventListener("click", () => dialog.close());
+        $("lbPrev").addEventListener("click", () => show(current - 1));
+        $("lbNext").addEventListener("click", () => show(current + 1));
+
+        // Keyboard: arrows to browse, Esc closes (built into <dialog>)
+        dialog.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowRight") { e.preventDefault(); show(current + 1); }
+            if (e.key === "ArrowLeft") { e.preventDefault(); show(current - 1); }
+        });
+
+        // Swipe on phones
+        let startX = null;
+        lbStage.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; }, { passive: true });
+        lbStage.addEventListener("touchend", (e) => {
+            if (startX === null) return;
+            const dx = e.changedTouches[0].clientX - startX;
+            if (Math.abs(dx) > 40) show(current + (dx < 0 ? 1 : -1));
+            startX = null;
+        });
+
+        // Click the dark area around the photo to close
+        lbStage.addEventListener("click", (e) => { if (e.target === lbStage) dialog.close(); });
+    </script>
+</body>
+
+</html>
